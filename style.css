@@ -1,0 +1,737 @@
+/* ==========================================================
+   OmniFood - Responsive Food Delivery Landing Page
+   Breakpoints: desktop >= 1200px | tablet <= 834px | mobile <= 480px (covers 390px)
+   ========================================================== */
+
+/* ---------- 1. Variables & reset ---------- */
+:root {
+    --orange: #e67e22;
+    --orange-dark: #cf6d17;
+    --orange-light: #f0a95e;
+    --text: #555555;
+    --text-light: #888888;
+    --grey-bg: #f4f4f4;
+    --dark: #333333;
+    --font: "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- 2. Reusable classes ---------- */
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-grey {
+    background-color: var(--grey-bg);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    color: var(--text);
+}
+
+.section-title.light {
+    color: #ffffff;
+}
+
+.rule {
+    display: block;
+    width: 100px;
+    height: 2px;
+    margin: 22px auto 60px auto;
+    background-color: var(--orange);
+}
+
+.icon {
+    flex: 0 0 auto;
+    width: 1.1em;
+    height: 1.1em;
+    fill: currentColor;
+    color: var(--orange);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 11px 30px;
+    font-size: 0.85em;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid var(--orange);
+    border-radius: 200px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-full {
+    color: #ffffff;
+    background-color: var(--orange);
+}
+
+.btn-full:hover {
+    background-color: var(--orange-dark);
+    border-color: var(--orange-dark);
+}
+
+.btn-ghost {
+    color: var(--orange);
+    background-color: transparent;
+}
+
+.btn-ghost:hover {
+    color: #ffffff;
+    background-color: var(--orange);
+}
+
+/* ---------- 3. Header + hero ---------- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 560px;
+    background-image: url("assets/hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.navbar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 44px;
+}
+
+.nav-links a {
+    padding-bottom: 6px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.nav-links a:hover {
+    border-bottom-color: var(--orange);
+}
+
+/* mobile menu toggle (hidden on desktop) */
+.menu-toggle,
+.menu-icon {
+    display: none;
+}
+
+.hero-text {
+    position: absolute;
+    left: 50%;
+    bottom: 12%;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+
+.hero h1 {
+    margin-bottom: 36px;
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+}
+
+/* ---------- 4. How it works ---------- */
+.how {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}
+
+.how-phone {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.how-phone img {
+    width: 100%;
+    max-width: 340px;
+}
+
+.how-steps {
+    flex: 1;
+}
+
+.steps li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 26px;
+    margin-bottom: 34px;
+}
+
+.step-number {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    height: 58px;
+    font-size: 1.6rem;
+    color: var(--orange);
+    border: 3px solid var(--orange);
+    border-radius: 50%;
+}
+
+.steps p {
+    font-size: 0.95em;
+    color: var(--text);
+}
+
+.store-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 44px;
+}
+
+.store-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 150px;
+    padding: 8px 18px;
+    line-height: 1.15;
+    color: #ffffff;
+    background-color: #000000;
+    border: 1px solid #a6a6a6;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.store-btn:hover {
+    transform: translateY(-2px);
+}
+
+.store-btn small {
+    font-size: 0.5em;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.store-btn strong {
+    font-size: 0.95em;
+    font-weight: 400;
+}
+
+/* ---------- 5. Cities ---------- */
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.city img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    margin-bottom: 18px;
+}
+
+.city h3 {
+    margin-bottom: 12px;
+    font-size: 1.05em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.city-details li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+    font-size: 0.8em;
+}
+
+.city-details a {
+    color: var(--orange);
+    border-bottom: 1px solid var(--orange-light);
+}
+
+/* ---------- 6. Testimonials ---------- */
+.testimonials {
+    position: relative;
+    padding: 80px 0 90px 0;
+    background-image: url("assets/testimonial-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.testimonials-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.testimonials-content {
+    position: relative;
+    z-index: 2;
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.quote {
+    color: #ffffff;
+}
+
+.quote blockquote {
+    position: relative;
+    padding-top: 56px;
+    font-size: 0.85em;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.quote blockquote::before {
+    content: "\201C";
+    position: absolute;
+    top: -6px;
+    left: 4px;
+    font-size: 4.2rem;
+    line-height: 1;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.quote figcaption {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    font-size: 0.75em;
+    font-style: italic;
+}
+
+.quote figcaption img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ---------- 7. Pricing ---------- */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+.plan {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.plan-head {
+    padding: 24px 22px 18px 22px;
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #efefef;
+}
+
+.plan-head h3 {
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.price {
+    font-size: 3.6rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--orange);
+}
+
+.price span {
+    font-size: 0.3em;
+    font-weight: 400;
+}
+
+.price-note {
+    margin-top: 10px;
+    font-size: 0.7em;
+}
+
+.plan-features {
+    flex: 1;
+    padding: 18px 22px;
+    border-bottom: 1px solid #efefef;
+}
+
+.plan-features li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    min-height: 34px;
+    font-size: 0.85em;
+}
+
+.plan-features .icon {
+    width: 1em;
+    height: 1em;
+}
+
+.plan-foot {
+    padding: 18px 22px 24px 22px;
+    text-align: center;
+}
+
+/* ---------- 8. Footer ---------- */
+.footer {
+    padding: 50px 0 22px 0;
+    color: #aaaaaa;
+    background-color: var(--dark);
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 22px;
+    font-size: 0.7em;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    color: #555555;
+}
+
+.social svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social a:hover {
+    color: var(--orange);
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+/* Small laptops */
+@media (max-width: 1199px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .cities-grid {
+        gap: 26px;
+    }
+
+    .plans-grid {
+        gap: 28px;
+    }
+}
+
+/* ---------- Tablet (<= 834px) ---------- */
+@media (max-width: 834px) {
+    body {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .rule {
+        margin-bottom: 44px;
+    }
+
+    .nav-links {
+        gap: 24px;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    /* sections stack nicely */
+    .how {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .how-steps {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    /* grids become 2 columns */
+    .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px 28px;
+    }
+
+    .quotes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ---------- Mobile (<= 480px, includes 390px) ---------- */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .rule {
+        margin: 16px auto 36px auto;
+    }
+
+    .logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    /* nav collapses into a hamburger menu */
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .menu-icon span {
+        display: block;
+        height: 2px;
+        background-color: #ffffff;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.88);
+        border-radius: 8px;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 0;
+        border-bottom: none;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero-text {
+        bottom: 10%;
+    }
+
+    .hero h1 {
+        margin-bottom: 26px;
+        font-size: 1.7rem;
+        word-spacing: 2px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .hero-buttons .btn {
+        min-width: 180px;
+    }
+
+    .how-phone img {
+        max-width: 250px;
+    }
+
+    .step-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+
+    .steps li {
+        gap: 18px;
+    }
+
+    /* single column layout */
+    .cities-grid,
+    .quotes-grid,
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .city-details li {
+        font-size: 0.9em;
+    }
+
+    .price {
+        font-size: 3rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+}
